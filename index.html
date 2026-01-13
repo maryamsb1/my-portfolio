@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Maryam Baskran | Portfolio</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Raleway:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* :root {
+      --primary-color: #00573f;
+      --accent-color: #00ffaa;
+    } */
+
+    :root {
+      --primary-color: #00573f;
+      --accent-color: #00ffaa;
+      /* ألوان المنيو الافتراضية (دارك) */
+      --menu-bg: rgba(33, 37, 41, 0.98);
+      --menu-text: #ffffff;
+    }
+
+    /* عندما يتم تفعيل اللايت مود، تتغير قيم المتغيرات تلقائياً */
+    body.light-mode {
+      --menu-bg: #ffffff;
+      --menu-text: #0a5c43;
+      --accent-color: #199e76;
+      /* أخضر أغمق قليلاً ليناسب الخلفية الفاتحة */
+    }
+
+
+    .header {
+      background: rgba(0, 0, 0, 0.9) !important;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    .navmenu a:hover,
+    .navmenu a.active {
+      color: var(--accent-color) !important;
+    }
+
+    .hero {
+      background: #000 !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary,
+    .btn-getstarted,
+    .progress-bar {
+      background-color: var(--primary-color) !important;
+      border: none !important;
+    }
+
+    /* هذا الكود يوحد جميع عناوين الأقسام لتشبه عنوان Contact */
+    .section-title h2 {
+      color: var(--primary-color) !important;
+      font-weight: 700 !important;
+      /* يخلي الخط عريض */
+      letter-spacing: 2px !important;
+      /* يخلي مسافات بين الحروف */
+      text-transform: uppercase;
+      /* يخلي الحروف كبيرة (اختياري) */
+    }
+
+
+    .profile-card {
+      border-top: 5px solid var(--primary-color);
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* هذا الجزء عشان يضمن ظهور القائمة في الجوال */
+    /* @media (max-width: 1199px) {
+      .mobile-nav-active .navmenu ul {
+        display: block !important;
+      }
+    } */
+
+    .skill-group-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 10px 30px rgba(0, 255, 170, 0.1) !important;
+    }
+
+    .skills-list span {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #ddd;
+    }
+
+
+    /* تنسيقات كروت التواصل */
+    .contact-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(0, 255, 170, 0.1);
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+    }
+
+    .contact-card:hover {
+      background: rgba(0, 255, 170, 0.05);
+      border-color: var(--accent-color);
+      transform: translateX(10px);
+    }
+
+    .icon-box {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      font-size: 1.5rem;
+    }
+
+    .contact-card h4 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .contact-card p {
+      color: #888;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* تنسيق الفورم */
+    .form-wrapper {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+    }
+
+    .input-group-custom input,
+    .input-group-custom textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 15px 20px;
+      color: #fff;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group-custom input:focus,
+    .input-group-custom textarea:focus {
+      border-color: var(--accent-color);
+      background: rgba(0, 255, 170, 0.02);
+    }
+
+    /* زر النيون */
+    .neon-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.4s;
+      box-shadow: 0 5px 15px rgba(0, 87, 63, 0.3);
+    }
+
+    .neon-btn:hover {
+      background: var(--accent-color);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-color);
+      transform: scale(1.05);
+    }
+
+
+    .modern-project-card {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 25px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: 0.4s;
+    }
+
+    .modern-project-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent-color);
+      box-shadow: 0 15px 30px rgba(0, 255, 170, 0.1);
+    }
+
+    .project-img-wrapper {
+      position: relative;
+      height: 300px;
+    }
+
+    .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-tag {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: var(--accent-color);
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .btn-detail {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .btn-detail:hover {
+      letter-spacing: 1px;
+    }
+
+    .badge {
+      background: transparent !important;
+      font-weight: 400;
+      margin-right: 5px;
+    }
+
+    /* ===== LIGHT MODE (SOFT & CLEAN) ===== */
+    body.light-mode {
+      --accent-color: #199e76;
+      background: #ddefe7;
+      color: #2a2a2a;
+    }
+
+    /* إزالة الخلفية السوداء عن البارتيكلز وقسم الهيرو في اللايت مود */
+    body.light-mode .hero,
+    body.light-mode #particles-js {
+      background: #eef7f3 !important;
+      /* نفس لون خلفية اللايت مود اللي اخترتيه */
+    }
+
+    /* إزالة أي طبقة تظليل (overlay) إضافية قد تكون موجودة */
+    body.light-mode .hero::before {
+      display: none !important;
+    }
+
+    body.light-mode .hero h2,
+    body.light-mode .hero p {
+      color: #0a5c43 !important;
+      /* لون غامق يناسب الخلفية الفاتحة */
+    }
+
+
+    body.light-mode section,
+    body.light-mode .hero {
+      background: #eef7f3 !important;
+    }
+
+    body.light-mode .header {
+      background: rgba(255, 255, 255, 0.9) !important;
+      /* border-bottom: 2px solid rgba(0,0,0,0.05); */
+
+      backdrop-filter: blur(10px);
+    }
+
+    body.light-mode h2,
+    body.light-mode h3,
+    body.light-mode h4 {
+      color: #0a5c43 !important;
+    }
+
+    body.light-mode p,
+    body.light-mode li {
+      color: #555 !important;
+    }
+
+    /* Cards */
+
+
+    body.light-mode .skill-group-card,
+    body.light-mode .resume-item,
+    body.light-mode .profile-card,
+    body.light-mode .contact-card,
+    body.light-mode .modern-project-card {
+      background: #ffffff !important;
+      /* خلي الخلفية بيضاء */
+      border: none !important;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+
+    /* Buttons */
+
+
+    body.light-mode .neon-btn {
+      background: #199e76;
+      /* زر أخضر */
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(25, 158, 118, 0.3);
+    }
+
+    body.light-mode .neon-btn:hover {
+      background: #17b27f;
+      /* أخضر فاتح عند المرور */
+      color: #fff;
+      box-shadow: 0 0 20px #17b27f;
+    }
+
+
+    /* Badges */
+
+
+    body.light-mode .badge {
+      background: rgba(25, 158, 118, 0.08) !important;
+      color: #199e76 !important;
+      border: none;
+    }
+
+
+    /* Inputs */
+
+    body.light-mode input,
+    body.light-mode textarea {
+      background: #f1f3f2 !important;
+      border: 1px solid #d0e8dc !important;
+      /* حدود خفيفة */
+      border-radius: 12px;
+      color: #222 !important;
+    }
+
+    body.light-mode input:focus,
+    body.light-mode textarea:focus {
+      border-color: #199e76;
+      background: #f0f7f2;
+    }
+
+    body.light-mode #contact {
+      background: #f9fdfb !important;
+    }
+
+    /* body.light-mode #contact h2 {
+  color: #199e76 !important;
+} */
+
+    body.light-mode #contact p {
+      color: #555 !important;
+    }
+
+    body.light-mode .contact-card h4 {
+      color: #199e76;
+    }
+
+    body.light-mode .contact-card p {
+      color: #555;
+    }
+
+    body.light-mode .icon-box {
+      background: #199e76 !important;
+      color: #fff;
+    }
+
+    /* طبقه البارتيكل */
+
+    body.light-mode .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(238, 247, 243, 0.6) !important;
+      z-index: 2;
+      display: block !important;
+    }
+
+
+
+
+
+
+    .theme-toggle {
+      background: transparent;
+      border: none;
+      color: #bbb;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: 0.3s;
+      padding: 6px;
+    }
+
+    .theme-toggle:hover {
+      color: var(--accent-color);
+    }
+
+    body.light-mode .theme-toggle {
+      color: #0a5c43;
+    }
+
+
+    /* mode btn*/
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-actions {
+      margin-left: 24px;
+    }
+
+    .theme-toggle {
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+
+    /* 1. السيطرة على المتغيرات اللي يستخدمها القالب أساساً */
+    body.light-mode {
+      --nav-color: #0a5c43;
+      --nav-mobile-background-color: #ffffff;
+      --nav-dropdown-color: #212529;
+      --nav-dropdown-hover-color: #199e76;
+    }
+
+    @media (max-width: 1199px) {
+
+      /* هذا الكود يطبق على المودين مع بعض ويخليهم قصار ومرتبين */
+      .mobile-nav-active .navmenu ul {
+        position: fixed !important;
+        display: block !important;
+
+        /* رفعنا المسافة من تحت إلى 150px عشان المربع يقصر */
+        inset: 80px 20px 150px 20px !important;
+
+        /* نثبت الطول اللي ناسب اللايت عندك */
+        height: auto !important;
+        min-height: 300px !important;
+        max-height: 300px;
+
+        padding: 20px 0 !important;
+        margin: 0 !important;
+        border-radius: 20px !important;
+        /* شكل دائري ألطف للمربع القصير */
+        z-index: 9998 !important;
+        overflow-y: auto !important;
+      }
+
+      /* ألوان اللايت */
+      body.light-mode.mobile-nav-active .navmenu ul {
+        background-color: #ffffff !important;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1) !important;
+      }
+
+      /* ألوان الدارك (رجعتها عشان نضمن ما تختفي) */
+      body:not(.light-mode).mobile-nav-active .navmenu ul {
+        background-color: rgba(33, 37, 41, 0.98) !important;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5) !important;
+      }
+
+
+    }
+
+
+    /* في الوضع العادي (الدارك) */
+    .logoLight {
+      display: none;
+    }
+
+    /* نخفي صورة اللايت */
+    .logoDark {
+      display: block;
+      max-height: 70px;
+    }
+
+    /* عندما يتفعل اللايت مود */
+    body.light-mode .logoDark {
+      display: none;
+    }
+
+    /* نخفي صورة الدارك */
+    body.light-mode .logoLight {
+      display: block;
+      max-height: 70px;
+    }
+
+
+    /* 1. تلوين جميع كروت الشهادات باللون الغامق (Primary) */
+    body.light-mode .resume-item {
+      background: #ffffff !important;
+      color: #2a2a2a !important;
+      /* نستخدم لون غامق صريح هنا بدلاً من المتغير للتأكد */
+      border-left: 5px solid #00573f !important;
+      border-radius: 0 15px 15px 0 !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* 2. تخصيص "أول كرت فقط" (Unity) باللون الفاتح المميز (Accent) */
+    body.light-mode .resume .row>div:first-child .resume-item {
+      /* لون أخضر فاتح مميز لأول شهادة فقط */
+      border-left: 5px solid #199e76 !important;
+      background-color: #fafffd !important;
+      /* مسحة خضراء خفيفة جداً لتمييزها */
+    }
+
+    /* 3. توحيد ألوان النصوص داخل الكروت في اللايت مود */
+    body.light-mode .resume-item h4 {
+      color: #00573f !important;
+      /* العنوان باللون الغامق */
+    }
+
+    body.light-mode .resume .row>div:first-child .resume-item h4 {
+      color: #199e76 !important;
+      /* عنوان أول شهادة باللون الفاتح */
+    }
+
+    /* تلوين تاريخ الشهادات */
+    body.light-mode .resume-item h5 {
+      background: #e8f5ef !important;
+      color: #0a5c43 !important;
+    }
+
+
+    /* تحسين أزرار المشاريع في اللايت مود */
+    body.light-mode .btn-outline-success {
+      color: #199e76 !important;
+      /* لون نص غامق وواضح */
+      border: 1px solid #199e76 !important;
+      /* حدود واضحة */
+      background-color: transparent !important;
+    }
+
+    body.light-mode .btn-outline-success:hover {
+      background-color: #199e76 !important;
+      /* عند المرور بالماوس يمتلئ باللون */
+      color: #ffffff !important;
+    }
+
+    /* إبراز صناديق الإدخال في اللايت مود */
+    body.light-mode .input-group-custom input,
+    body.light-mode .input-group-custom textarea {
+      background: #ffffff !important;
+      /* خلفية بيضاء صريحة */
+      border: 2px solid #d0e8dc !important;
+      /* حدود بلون أخضر هادئ */
+      color: #2a2a2a !important;
+      /* لون الكتابة */
+    }
+
+    /* حركة عند الضغط على الصندوق للكتابة */
+    body.light-mode .input-group-custom input:focus,
+    body.light-mode .input-group-custom textarea:focus {
+      border-color: #199e76 !important;
+      /* الحدود تصبح أغمق */
+      box-shadow: 0 0 10px rgba(25, 158, 118, 0.1) !important;
+      background: #fafffd !important;
+    }
+
+    /* تحسين كروت الإيميل واللينكد إن في اللايت مود */
+    body.light-mode .contact-card {
+      border: 2px solid #e8f5ef !important;
+    }
+
+
+
+    /* إبراز المربع الكبير للفورم في اللايت مود */
+    body.light-mode .form-wrapper {
+      background: #ffffff !important;
+      border: 1px solid #d0e8dc !important;
+      /* حدود خضراء باهتة جداً */
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+      /* ظل يعطي عمق للمربع */
+      backdrop-filter: none !important;
+      /* نلغيه في اللايت مود عشان ما يشوش الرؤية */
+    }
+
+    /* تحسين تباين العناوين داخل قسم التواصل في اللايت مود */
+    body.light-mode #contact {
+      background: #f9fdfb !important;
+      /* تغيير خلفية السكشن كامل لدرجة أفتح قليلاً من الباقي */
+    }
+
+    body.light-mode #contact h2 {
+      color: #00573f !important;
+      /* العنوان الرئيسي غامق */
+    }
+
+    body.light-mode #contact p {
+      color: #555555 !important;
+      /* وصف القسم بلون رمادي واضح */
+    }
+
+
+    /* تحسين أزرار المشاريع في الدارك مود (الوضع الافتراضي) */
+    body:not(.light-mode) .btn-outline-success {
+      color: var(--accent-color) !important;
+      border: 1px solid var(--accent-color) !important;
+      background-color: rgba(0, 255, 170, 0.05) !important;
+      /* لمسة لون خفيفة للخلفية للتباين */
+      font-weight: 600;
+    }
+
+    body:not(.light-mode) .btn-outline-success:hover {
+      background-color: var(--accent-color) !important;
+      color: #000 !important;
+      box-shadow: 0 0 15px var(--accent-color);
+    }
+
+
+    /* الألوان الافتراضية (Dark Mode) */
+    .status-success {
+      color: #00ffaa !important;
+      font-weight: bold;
+    }
+
+    .status-error {
+      color: #ff4d4d !important;
+      font-weight: bold;
+    }
+
+    /* ألوان اللايت مود (Light Mode) */
+    body.light-mode .status-success {
+      color: #0a5c43 !important;
+      /* أخضر غامق مريح للعين في الخلفية الفاتحة */
+    }
+
+    body.light-mode .status-error {
+      color: #b91c1c !important;
+      /* أحمر داكن للخطأ */
+    }
+
+
+    .form-wrapper form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* هذا السطر يضيف مسافة 20px بين كل عنصر وعنصر داخل الفورم */
+      gap: 20px;
+    }
+
+    /* وعشان نضمن الرسالة تحديداً تبعد أكثر، نضيف لها margin-top إضافي */
+    #statusMsg {
+      margin-top: 10px !important;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <!-- LOGO -->
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logoDark.png" class="logoDark" alt="Logo Dark" style="max-height: 70px;">
+        <img src="assets/img/logoLight.png" class="logoLight" alt="Logo Light" style="max-height: 70px;">
+      </a>
+
+      <!-- NAV MENU -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#resume">Certificates</a></li>
+          <li><a href="#portfolio">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <!-- NAV ACTIONS (Theme Toggle) -->
+      <div class="nav-actions d-flex align-items-center">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="bi bi-moon"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <main class="main">
+
+    <section id="hero" class="hero section dark-background">
+      <div id="particles-js"></div>
+      <div class="container text-center" data-aos="fade-up">
+        <h2>Hi, I'm Maryam Baskran</h2>
+        <p>I'm a <span class="typed" data-typed-items="UI/UX Designer, Game Developer, Software Engineer"></span><span
+            class="typed-cursor" aria-hidden="true"></span></p>
+      </div>
+    </section>
+
+
+    <section id="about" class="about section">
+      <div class="container section-title text-center" data-aos="fade-up">
+        <h2>About Me</h2>
+        <p style="font-size: 1.1rem; color: #eee; max-width: 900px; margin: 0 auto; line-height: 1.6;">
+          Hi! I'm <span style="color: var(--accent-color); font-weight: 700;">Maryam</span>,
+          a Computer Science graduate who enjoys creating meaningful digital experiences through
+          <span style="border-bottom: 2px solid var(--primary-color);">software</span>,
+          <span style="border-bottom: 2px solid var(--primary-color);">games</span>,
+          and <span style="border-bottom: 2px solid var(--primary-color);">design</span>.
+          <!-- <br>I'm deeply curious about technology and love exploring different fields, including AI and cybersecurity.
+          I enjoy understanding how things work behind the scenes and turning ideas into interactive solutions.
+          Driven, adaptable, and confident in my ability to learn, grow, and contribute across diverse tech
+          environments. -->
+        </p>
+      </div>
+
+      <div class="container d-flex justify-content-center mt-5">
+        <div class="profile-card p-4 shadow-sm text-center"
+          style="max-width: 600px; width: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(0, 87, 63, 0.3); border-radius: 30px; backdrop-filter: blur(10px);">
+          <h3 style="color: #fff;">My Resume</h3>
+          <p style="color: var(--accent-color); font-weight: 500; letter-spacing: 1px;">A snapshot of my skills and
+            background</p>
+
+          <div class="profile-actions mt-4">
+            <a href="https://drive.google.com/file/d/107J-hJV6WW2oBNNdQsh1MPe3LPkh9akC/view?usp=share_link"
+              target="_blank" class="btn neon-btn w-100" style="padding: 12px;">
+              <i class="bi bi-file-earmark-pdf me-2"></i> VIEW CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills section">
+      <div class="container section-title text-center" data-aos="fade-up">
+        <h2>Skills</h2>
+        <p>My technical stack and professional capabilities</p>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4 justify-content-center">
+
+          <div class="col-lg-6">
+            <div class="skill-group-card p-4 shadow-sm h-100"
+              style="background: rgba(255,255,255,0.05); border: 1px solid rgba(0, 87, 63, 0.3); border-radius: 20px;">
+              <div class="d-flex align-items-center mb-4">
+                <i class="bi bi-cpu" style="font-size: 2rem; color: var(--accent-color); margin-right: 15px;"></i>
+                <h4 class="mb-0" style="color: #fff; font-weight: 700;">Technical Expertise</h4>
+              </div>
+
+              <div class="mb-3">
+                <strong style="color: var(--accent-color); display: block; margin-bottom: 5px;">Programming &
+                  Databases</strong>
+                <p style="color: #ddd;">Python, Java, C#, JavaScript, SQL, Apex</p>
+              </div>
+
+              <div class="mb-3">
+                <strong style="color: var(--accent-color); display: block; margin-bottom: 5px;">Design & UI/UX</strong>
+                <p style="color: #ddd;">Figma, Canva, HTML5/CSS3</p>
+              </div>
+
+              <div>
+                <strong style="color: var(--accent-color); display: block; margin-bottom: 5px;">Tools &
+                  Platforms</strong>
+                <p style="color: #ddd;">Unity, Adalo, MS Office</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="skill-group-card p-4 shadow-sm h-100"
+              style="background: rgba(255,255,255,0.05); border: 1px solid rgba(0, 87, 63, 0.3); border-radius: 20px;">
+              <div class="d-flex align-items-center mb-4">
+                <i class="bi bi-stars" style="font-size: 2rem; color: var(--accent-color); margin-right: 15px;"></i>
+                <h4 class="mb-0" style="color: #fff; font-weight: 700;">Soft Skills</h4>
+              </div>
+
+              <ul class="list-unstyled" style="color: #ddd; line-height: 2;">
+                <ul class="list-unstyled" style="color: #ddd; line-height: 2;">
+                  <li><i class="bi bi-check2-circle me-2" style="color: var(--accent-color);"></i> Effective
+                    Communication</li>
+                  <li><i class="bi bi-check2-circle me-2" style="color: var(--accent-color);"></i> Teamwork &
+                    Collaboration</li>
+                  <li><i class="bi bi-check2-circle me-2" style="color: var(--accent-color);"></i> Independent &
+                    Self-Driven Work</li>
+                  <li><i class="bi bi-check2-circle me-2" style="color: var(--accent-color);"></i> Leadership &
+                    Flexibility</li>
+                  <li><i class="bi bi-check2-circle me-2" style="color: var(--accent-color);"></i> Organizing &
+                    Strategic Planning</li>
+                  <li><i class="bi bi-check2-circle me-2" style="color: var(--accent-color);"></i> Efficient
+                    Multitasking & Problem-Solving</li>
+                </ul>
+
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="resume section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Certificates</h2>
+        <p>Professional certifications and specialized bootcamps</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="resume-item p-4 shadow-sm h-100"
+              style="background: rgba(255,255,255,0.05); border-left: 5px solid var(--accent-color); border-radius: 0 15px 15px 0;">
+              <h4 style="color: var(--accent-color); font-weight: 700;">Unity Certified User: Programmer</h4>
+              <h5
+                style="background: rgba(0, 87, 63, 0.4); display: inline-block; padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; margin: 10px 0;">
+                July 2025</h5>
+              <p><em>Unity Technologies</em></p>
+              <a href="https://drive.google.com/file/d/1Bx8-ke8VlDtEYDbpDdFCbN7aKDTZ2xSu/view?usp=share_link"
+                target="_blank" style="color: var(--accent-color); font-size: 0.85rem; text-decoration: none;">
+                <i class="bi bi-patch-check-fill"></i> Verify Certificate
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="resume-item p-4 shadow-sm h-100"
+              style="background: rgba(255,255,255,0.05); border-left: 5px solid var(--primary-color); border-radius: 0 15px 15px 0;">
+              <h4 style="color: #fff;">Game Developer Unity Bootcamp</h4>
+              <h5
+                style="background: rgba(0, 87, 63, 0.4); display: inline-block; padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; margin: 10px 0;">
+                May 2025</h5>
+              <p><em>Saudi Digital Academy (SDA)</em></p>
+              <a href="https://drive.google.com/file/d/1peKr9u0seXedJleOTidyVYMN98YlX_e1/view?usp=share_link"
+                target="_blank" style="color: var(--accent-color); font-size: 0.85rem; text-decoration: none;">
+                <i class="bi bi-link-45deg"></i> View Credentials
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="resume-item p-4 shadow-sm h-100"
+              style="background: rgba(255,255,255,0.05); border-left: 5px solid var(--primary-color); border-radius: 0 15px 15px 0;">
+              <h4 style="color: #fff;">UI Design Bootcamp</h4>
+              <h5
+                style="background: rgba(0, 87, 63, 0.4); display: inline-block; padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; margin: 10px 0;">
+                January 2025</h5>
+              <p><em>NMKKN</em></p>
+              <a href="https://drive.google.com/file/d/133x-LnlSfzuJfO0gJ_CiLzAT-U9-kKYX/view?usp=share_link"
+                target="_blank" style="color: var(--accent-color); font-size: 0.85rem; text-decoration: none;">
+                <i class="bi bi-link-45deg"></i> View Credentials
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="resume-item p-4 shadow-sm h-100"
+              style="background: rgba(255,255,255,0.05); border-left: 5px solid var(--primary-color); border-radius: 0 15px 15px 0;">
+              <h4 style="color: #fff;">Skill Building Camp</h4>
+              <h5
+                style="background: rgba(0, 87, 63, 0.4); display: inline-block; padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; margin: 10px 0;">
+                January 2024</h5>
+              <p><em>SHRDF</em></p>
+              <a href="https://drive.google.com/file/d/1hD_wEN7pdyl1n7iltFWMkwg_bXwqHq7a/view?usp=share_link"
+                target="_blank" style="color: var(--accent-color); font-size: 0.85rem; text-decoration: none;">
+                <i class="bi bi-link-45deg"></i> View Credentials
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="projects section" style="padding: 80px 0;">
+      <div class="container section-title text-center" data-aos="fade-up">
+        <h2>My Projects</h2>
+        <p>A detailed look into my latest technical and creative works</p>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-5 col-md-6">
+            <div class="skill-group-card p-0 overflow-hidden shadow-sm h-100"
+              style="background: rgba(255,255,255,0.05); border: 1px solid rgba(0, 87, 63, 0.3); border-radius: 20px;">
+              <img src="assets/img/graduation.jpg" class="img-fluid w-100" style="height: 180px; object-fit: cover;"
+                alt="My Designer">
+              <div class="p-4 text-start">
+                <span class="badge rounded-pill mb-2"
+                  style="background: rgba(0, 255, 170, 0.1); color: var(--accent-color); border: 1px solid var(--accent-color); font-size: 0.7rem;">Graduation
+                  Project</span>
+                <h5 style="color: #fff; font-weight: 700;">My Designer</h5>
+                <p style="color: #ddd; font-size: 0.85rem; min-height: 50px;">An innovative platform developed as a
+                  final year project to enhance digital creativity and design workflows.</p>
+                <a href="https://github.com/maryamsb1/My-Designer-Graduation-Project/blob/main/README.md#-project-vision"
+                  target="_blank" class="btn btn-outline-success border-success mt-2"
+                  style="color: var(--accent-color); border-radius: 20px; font-size: 0.8rem;">View Details <i
+                    class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-6">
+            <div class="skill-group-card p-0 overflow-hidden shadow-sm h-100"
+              style="background: rgba(255,255,255,0.05); border: 1px solid rgba(0, 87, 63, 0.3); border-radius: 20px;">
+              <img src="assets/img/ui-design.jpg" class="img-fluid w-100" style="height: 180px; object-fit: cover;"
+                alt="Study Buddy">
+              <div class="p-4 text-start">
+                <span class="badge rounded-pill mb-2"
+                  style="background: rgba(0, 255, 170, 0.1); color: var(--accent-color); border: 1px solid var(--accent-color); font-size: 0.7rem;">UI/UX
+                  Design</span>
+                <h5 style="color: #fff; font-weight: 700;">Study Buddy</h5>
+                <p style="color: #ddd; font-size: 0.85rem; min-height: 50px;">A mobile application UI design focused on
+                  facilitating student collaboration and shared learning resources.</p>
+                <a href="https://www.figma.com/proto/o9SpaNH6Fx2syI16ptxE7X/StudyBuddy-AI?page-id=0%3A1&node-id=27-897&p=f&viewport=226%2C151%2C0.05&t=N9tUMVfbSZEfNJzi-9&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=27%3A897&show-proto-sidebar=1"
+                  target="_blank" class="btn btn-outline-success border-success mt-2"
+                  style="color: var(--accent-color); border-radius: 20px; font-size: 0.8rem;">View Details <i
+                    class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-6">
+            <div class="skill-group-card p-0 overflow-hidden shadow-sm h-100"
+              style="background: rgba(255,255,255,0.05); border: 1px solid rgba(0, 87, 63, 0.3); border-radius: 20px;">
+              <img src="assets/img/unity-game.jpg" class="img-fluid w-100" style="height: 180px; object-fit: cover;"
+                alt="The Will">
+              <div class="p-4 text-start">
+                <span class="badge rounded-pill mb-2"
+                  style="background: rgba(0, 255, 170, 0.1); color: var(--accent-color); border: 1px solid var(--accent-color); font-size: 0.7rem;">Game
+                  Development</span>
+                <h5 style="color: #fff; font-weight: 700;">The Will</h5>
+                <p style="color: #ddd; font-size: 0.85rem; min-height: 50px;">An adventure-based game developed using
+                  Unity and C#, featuring interactive storytelling and immersive environments.</p>
+                <a href="https://github.com/maryamsb1/The-Will-Unity-Game/tree/main" target="_blank"
+                  class="btn btn-outline-success border-success mt-2"
+                  style="color: var(--accent-color); border-radius: 20px; font-size: 0.8rem;">View Details <i
+                    class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-6">
+            <div class="skill-group-card p-0 overflow-hidden shadow-sm h-100"
+              style="background: rgba(255,255,255,0.05); border: 1px solid rgba(0, 87, 63, 0.3); border-radius: 20px;">
+              <img src="assets/img/apex-project.jpg" class="img-fluid w-100" style="height: 180px; object-fit: cover;"
+                alt="Medical Devices Tracker">
+              <div class="p-4 text-start">
+                <span class="badge rounded-pill mb-2"
+                  style="background: rgba(0, 255, 170, 0.1); color: var(--accent-color); border: 1px solid var(--accent-color); font-size: 0.7rem;">APEX
+                  / SQL</span>
+                <h5 style="color: #fff; font-weight: 700;">Medical Tracker</h5>
+                <p style="color: #ddd; font-size: 0.85rem; min-height: 50px;">A specialized database management system
+                  built on Oracle APEX for tracking and monitoring medical equipment.</p>
+                <a href="https://github.com/maryamsb1/Medical-Devices-Tracker/tree/main" target="_blank"
+                  class="btn btn-outline-success border-success mt-2"
+                  style="color: var(--accent-color); border-radius: 20px; font-size: 0.8rem;">View Details <i
+                    class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="contact" class="contact section"
+      style="background: linear-gradient(180deg, #000 0%, #001a13 100%); padding: 80px 0;">
+      <div class="container section-title text-center" data-aos="fade-up">
+        <h2 style="color: var(--accent-color); font-weight: 700; letter-spacing: 2px;">GET IN TOUCH</h2>
+        <p style="color: #bbb;">I'm always open to discussing new projects or creative ideas!</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-5 justify-content-center">
+          <div class="col-lg-10">
+            <div class="row gy-4 mb-5">
+              <div class="col-md-6">
+                <a href="mailto:msbaskran@gmail.com" class="contact-card d-flex align-items-center p-4">
+                  <div class="icon-box"><i class="bi bi-envelope-at"></i></div>
+                  <div class="ms-3">
+                    <h4>Email Me</h4>
+                    <p>msbaskran@gmail.com</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a href="https://linkedin.com/in/maryambaskran" target="_blank"
+                  class="contact-card d-flex align-items-center p-4">
+                  <div class="icon-box"><i class="bi bi-linkedin"></i></div>
+                  <div class="ms-3">
+                    <h4>LinkedIn</h4>
+                    <p>Connect with me</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="form-wrapper p-4 p-md-5">
+              <form id="contact-form">
+                <div class="row gy-4">
+                  <div class="col-md-6">
+                    <div class="input-group-custom">
+                      <input type="text" id="userName" placeholder="Your Name" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group-custom">
+                      <input type="email" id="userEmail" placeholder="Your Email" required>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="input-group-custom">
+                      <textarea id="userMessage" rows="5" placeholder="Write your message here..." required></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-center mt-5">
+                    <button type="submit" id="submitBtn" class="neon-btn">
+                      <span>Send Message</span>
+                      <i class="bi bi-send-fill ms-2"></i>
+                    </button>
+                  </div>
+                </div>
+                <div id="statusMessage" class="mt-4 text-center fw-bold"></div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+
+  <script>
+    // 1. كود فتح وإغلاق القائمة (Mobile Nav Toggle)
+    const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+    if (mobileNavToggleBtn) {
+      mobileNavToggleBtn.addEventListener('click', function (e) {
+        document.querySelector('body').classList.toggle('mobile-nav-active');
+        this.classList.toggle('bi-list');
+        this.classList.toggle('bi-x');
+      });
+    }
+
+    // 2. إغلاق القائمة عند الضغط على أي رابط
+    document.querySelectorAll('#navmenu a').forEach(navmenu => {
+      navmenu.addEventListener('click', () => {
+        if (document.querySelector('.mobile-nav-active')) {
+          document.querySelector('body').classList.remove('mobile-nav-active');
+          mobileNavToggleBtn.classList.add('bi-list');
+          mobileNavToggleBtn.classList.remove('bi-x');
+        }
+      });
+    });
+
+    // 3. AOS Animation
+    AOS.init({ duration: 1000, once: true });
+
+    // 4. Typed.js
+    const typedElements = document.querySelectorAll('.typed');
+    typedElements.forEach(el => {
+      const items = el.getAttribute('data-typed-items').split(',');
+      new Typed(el, {
+        strings: items,
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2000,
+        loop: true
+      });
+    });
+
+    // 5. Particles.js
+    particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 50 },
+        "color": { "value": "#00573f" },
+        "line_linked": { "enable": true, "color": "#00573f", "opacity": 0.4 },
+        "move": { "speed": 2 },
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" }
+        }
+      }
+    });
+
+
+
+
+  </script>
+
+
+
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyD9m_WqXKRY1kAXp392TVQoPsiBvfajEmY",
+      authDomain: "myportfolio-823a4.firebaseapp.com",
+      projectId: "myportfolio-823a4",
+      storageBucket: "myportfolio-823a4.firebasestorage.app",
+      messagingSenderId: "232717401578",
+      appId: "1:232717401578:web:668ce4137654e510a60693",
+      measurementId: "G-Z1QCMH6ZE3"
+    };
+
+    // 3. تشغيل الربط
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // 4. كود إرسال الفورم (جاهز ما يحتاج تعدلين فيه شي)
+    const contactForm = document.getElementById('contact-form');
+    const statusMsg = document.getElementById('statusMessage');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerText = "Sending...";
+
+        try {
+          await addDoc(collection(db, "messages"), {
+            name: document.getElementById('userName').value,
+            email: document.getElementById('userEmail').value,
+            message: document.getElementById('userMessage').value,
+            timestamp: serverTimestamp()
+          });
+
+          // statusMsg.style.display = "block";
+          // statusMsg.style.color = "#00ffaa";
+          // statusMsg.innerText = "Message sent successfully!";
+          // contactForm.reset();
+          // في حالة النجاح (Success)
+          statusMsg.style.display = "block";
+          statusMsg.className = "status-success"; // نغير الكلاس بدل اللون اليدوي
+          statusMsg.innerText = "Message sent successfully!";
+          contactForm.reset();
+
+
+        } catch (error) {
+          console.error("Error adding document: ", error);
+          // statusMsg.style.display = "block";
+          // statusMsg.style.color = "red";
+          // statusMsg.innerText = "Error! Please try again.";
+          // في حالة الخطأ (Error)
+          statusMsg.style.display = "block";
+          statusMsg.className = "status-error"; // نغير الكلاس للخطأ
+          statusMsg.innerText = "Error! Please try again.";
+
+        } finally {
+          btn.disabled = false;
+          btn.innerText = "Send Message";
+        }
+      });
+    }
+  </script>
+
+  <script>
+    //   const toggleBtn = document.getElementById("themeToggle");
+    //   const icon = toggleBtn.querySelector("i");
+
+    //   // تحميل الوضع المحفوظ
+    //   if (localStorage.getItem("theme") === "light") {
+    //   document.body.classList.add("light-mode");
+    //   icon.classList.replace("bi-moon", "bi-sun");
+    // }
+
+    // toggleBtn.addEventListener("click", () => {
+    //   document.body.classList.toggle("light-mode");
+
+    //   if (document.body.classList.contains("light-mode")) {
+    //     icon.classList.replace("bi-moon", "bi-sun");
+    //     localStorage.setItem("theme", "light");
+    //   } else {
+    //     icon.classList.replace("bi-sun", "bi-moon");
+    //     localStorage.setItem("theme", "dark");
+    //   }
+    // });
+
+    const toggleBtn = document.getElementById("themeToggle");
+    const icon = toggleBtn.querySelector("i");
+
+    // دالة لتشغيل البارتيكلز حسب الثيم
+    function loadParticles(isLight) {
+      particlesJS('particles-js', {
+        "particles": {
+          "number": { "value": 50 },
+          // هنا التغيير: إذا كان لايت مود نختار اللون الأخضر الداكن، وإذا دارك نختار اللون الأساسي
+          "color": { "value": isLight ? "#199e76" : "#00573f" },
+          "line_linked": {
+            "enable": true,
+            "color": isLight ? "#199e76" : "#00573f",
+            "opacity": 0.4
+          },
+          "move": { "speed": 2 },
+        },
+        "interactivity": {
+          "events": {
+            "onhover": { "enable": true, "mode": "repulse" },
+            "onclick": { "enable": true, "mode": "push" }
+          }
+        }
+      });
+    }
+
+    // تحميل الوضع المحفوظ عند فتح الصفحة
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light-mode");
+      icon.classList.replace("bi-moon", "bi-sun");
+      loadParticles(true); // تشغيل بلون اللايت مود
+    } else {
+      loadParticles(false); // تشغيل بلون الدارك مود
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+
+      const isLight = document.body.classList.contains("light-mode");
+
+      if (isLight) {
+        icon.classList.replace("bi-moon", "bi-sun");
+        localStorage.setItem("theme", "light");
+        loadParticles(true); // تحديث اللون فوراً للأخضر الداكن
+      } else {
+        icon.classList.replace("bi-sun", "bi-moon");
+        localStorage.setItem("theme", "dark");
+        loadParticles(false); // تحديث اللون فوراً للدارك
+      }
+    });
+  </script>
+
+
+
+  <!-- <script>
+// كود ذكي لمساواة طول المنيو في اللايت والدارك
+const observer = new MutationObserver(() => {
+  const body = document.body;
+  const navMenuUl = document.querySelector('.navmenu ul');
+  
+  if (body.classList.contains('mobile-nav-active')) {
+    // إذا فتحنا المنيو، نجبرها تاخد مسافة ثابتة من الشاشة وتلغي السكرول
+    navMenuUl.style.setProperty('height', 'calc(100vh - 100px)', 'important');
+    navMenuUl.style.setProperty('overflow', 'hidden', 'important'); // يحذف السكرول المزعج
+  }
+});
+
+observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+</script> -->
+
+
+
+
+
+
+
+</body>
+
+</html>
